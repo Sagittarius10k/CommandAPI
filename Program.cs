@@ -9,6 +9,11 @@ builder.Services.AddMemoryCache();
 
 // add App services
 builder.Services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo>();
+builder.Services.AddHttpClient<IPostService, PostService>(client => 
+{
+    client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
+});
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
